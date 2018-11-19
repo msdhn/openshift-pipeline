@@ -63,7 +63,7 @@ objects:
                }
 
 
-               /**
+               /**TODO
                stage('Archive App') {
                  steps {
                    sh "${mvnCmd} deploy -DskipTests=true -P nexus3"
@@ -97,12 +97,8 @@ objects:
                  }
                }
 
-
              /**
                stage('Promote to STAGE?') {
-                 agent {
-                   label 'skopeo'
-                 }
                  steps {
                    timeout(time:15, unit:'MINUTES') {
                        input message: "Promote to STAGE?", ok: "Promote"
@@ -110,7 +106,7 @@ objects:
 
                    script {
                      openshift.withCluster() {
-                         openshift.tag("dev/demo:latest", "stage/demo:stage")
+                         openshift.tag("dev/demo:latest", "stage/demo:stageready")
                      }
                    }
                  }
