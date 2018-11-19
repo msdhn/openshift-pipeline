@@ -1,0 +1,16 @@
+<settings>
+  <mirrors>
+    <mirror>
+      <id>nexus</id>
+      <mirrorOf>*,!SnapshotRepository</mirrorOf>
+      <url>{{ maven.mirror }}</url>
+    </mirror>
+  </mirrors>
+
+  <pluginGroups>
+    <pluginGroup>org.jacoco</pluginGroup>
+    <pluginGroup>org.mortbay.jetty</pluginGroup>
+    <pluginGroup>nl.inology.mojo</pluginGroup>
+  </pluginGroups>
+
+</settings>
